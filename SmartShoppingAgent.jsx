@@ -4,10 +4,10 @@ import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged }
 import { getFirestore, doc, setDoc, onSnapshot, collection, query, orderBy, limit, deleteDoc, getDoc, writeBatch } from 'firebase/firestore';
 import { Upload, Edit, RefreshCw, Zap, Bot, Trash2 } from 'lucide-react'; // Added Trash2 icon
 
-// --- Global Context Variables (Provided by Canvas Environment) ---
+// --- Global Context Variables
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-const apiKey = ""; // API Key for Gemini is handled by the Canvas environment for fetch calls
+// const apiKey = "";
 
 // --- Initial Data Structures for Seeding the Database ---
 
@@ -72,7 +72,8 @@ const imageToBase64 = (file) => {
  */
 const callVisionAPI = async (base64Image, mimeType) => {
     const model = 'gemini-2.5-flash-preview-09-2025';
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    // const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    const proxyUrl = '/api/gemini';
 
     const visionPrompt = `
         You are an OCR and data extraction system for a shopping agent.
@@ -110,10 +111,10 @@ const callVisionAPI = async (base64Image, mimeType) => {
     };
 
     try {
-        const response = await fetchWithRetry(apiUrl, {
+        const response = await fetchWithRetry(proxyUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify({ model, payload})
         });
 
         const result = await response.json();
@@ -135,7 +136,8 @@ const callVisionAPI = async (base64Image, mimeType) => {
  */
 const callPredictiveEngine = async (inventory, purchaseHistory) => {
     const model = 'gemini-2.5-flash-preview-09-2025';
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    // const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    const proxyUrl = '/api/gemini'
 
     // Prepare data for the prompt
     // FIX: Add optional chaining to ensure name and other properties exist before accessing them.
@@ -214,7 +216,7 @@ const callPredictiveEngine = async (inventory, purchaseHistory) => {
         const response = await fetchWithRetry(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify({ model, payload})
         });
 
         const result = await response.json();
