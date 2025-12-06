@@ -1110,7 +1110,7 @@ const App = () => {
     return (
         <div className="min-h-screen bg-gray-100 font-sans text-gray-800 p-4 sm:p-8">
             <header className="mb-8">
-                <h1 className="text-3xl font-extrabold text-indigo-700">Autonomous Shopping Agent MVP</h1>
+                <h1 className="text-3xl font-extrabold text-indigo-700">AKEDOshop MVP</h1>
                 <p className="text-sm text-gray-500 mt-1">
                     User ID: <span className="font-mono bg-gray-200 px-1 rounded">{userId || 'Loading...'}</span> |
                     Status: <span className="font-medium text-green-600">{logMessage || (isAuthReady ? 'Ready' : 'Authenticating...')}</span>
