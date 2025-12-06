@@ -4,6 +4,8 @@ import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged }
 import { getFirestore, doc, setDoc, onSnapshot, collection, query, orderBy, limit, deleteDoc, getDoc, writeBatch } from 'firebase/firestore';
 import { Upload, Edit, RefreshCw, Zap, Bot, Trash2 } from 'lucide-react'; // Added Trash2 icon
 
+const appId = 'default-app-id';
+
 // --- Global Context Variables
 // const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 // const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
