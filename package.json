@@ -1,7 +1,7 @@
 {
   "name": "smart-shopping-agent",
   "version": "1.0.0",
-  "description": "An autonomous shopping agent leveraging Firebase and Gemini for inventory management, forecasting, and receipt processing.",
+  "description": "An autonomous shopping agent.",
   "main": "SmartShoppingAgent.jsx",
   "type": "module",
   "scripts": {
@@ -30,4 +30,5 @@
     ]
   }
 }
+
 
