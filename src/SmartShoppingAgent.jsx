@@ -225,7 +225,7 @@ const callPredictiveEngine = async (inventory, purchaseHistory) => {
     };
 
     try {
-        const response = await fetchWithRetry(apiUrl, {
+        const response = await fetchWithRetry(proxyUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ model, payload})
