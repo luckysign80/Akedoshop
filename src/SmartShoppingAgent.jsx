@@ -938,7 +938,7 @@ const App = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* 1. Image Upload (Receipt OCR) */}
                     <div className="border border-indigo-200 p-4 rounded-lg bg-indigo-50 shadow-inner">
-                        <label htmlFor="receipt-upload" className="block text-sm font-bold text-indigo-700 mb-2 flex items-center"><Upload className="w-4 h-4 mr-2" /> 1. Upload Receipt (Vision OCR)</label>
+                        <label htmlFor="receipt-upload" className="block text-sm font-bold text-indigo-700 mb-2 flex items-center"><Upload className="w-4 h-4 mr-2" /> 1. Upload Receipt</label>
                         <p className="text-xs text-indigo-600 mb-3">Upload your receipt here.</p>
                         <input
                             type="file"
