@@ -939,7 +939,7 @@ const App = () => {
                     {/* 1. Image Upload (Receipt OCR) */}
                     <div className="border border-indigo-200 p-4 rounded-lg bg-indigo-50 shadow-inner">
                         <label htmlFor="receipt-upload" className="block text-sm font-bold text-indigo-700 mb-2 flex items-center"><Upload className="w-4 h-4 mr-2" /> 1. Upload Receipt (Vision OCR)</label>
-                        <p className="text-xs text-indigo-600 mb-3">Uses Gemini Vision to extract items, quantity, cost, and vendor from a receipt image.</p>
+                        <p className="text-xs text-indigo-600 mb-3">Upload your receipt here.</p>
                         <input
                             type="file"
                             id="receipt-upload"
