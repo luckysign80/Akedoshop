@@ -5,8 +5,18 @@ import { getFirestore, doc, setDoc, onSnapshot, collection, query, orderBy, limi
 import { Upload, Edit, RefreshCw, Zap, Bot, Trash2 } from 'lucide-react'; // Added Trash2 icon
 
 // --- Global Context Variables
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+// const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+// const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+
+const firebaseConfig = {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+
 // const apiKey = "";
 
 // --- Initial Data Structures for Seeding the Database ---
